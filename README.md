@@ -1,6 +1,6 @@
-# CP2k77
+# 67-er
 
-uhh, it does a spinning cyberpunk thing
+it does a nice 67.
 
 ## how to use it
 find urself the URI (dist/uri.txt) and then just kinda use it (hope it works)
