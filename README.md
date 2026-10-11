@@ -3,7 +3,7 @@
 it does a nice 67.
 
 ## how to use it
-find urself the URI (dist/uri.txt) and then just kinda use it (hope it works)
+find urself the URI (out/uri.txt) and then just kinda use it (hope it works)
 
 ## how it works:
 >  we first show the user a start button, which when clicked, we ask the JS to hide the btn and start the main loop immediately. 
