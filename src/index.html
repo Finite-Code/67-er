@@ -1,0 +1,38 @@
+<body style=background:black> <!-- Originally intended to be a 3d CP2k77 logo, it turned into a slop 6/7 project -->
+<style>body{background:black;display:grid;place-items:center}</style>
+<div id=i><p style=color:white;>
+    6/7-er<br>
+    mouse move = wider orbit<br>
+    click = beep<br><br></p>
+    <button id=b>tap2start</button>
+</div>
+<canvas id=c width=400 height=400 hidden>
+<script>
+    const ctx = c.getContext('2d');
+    let dih = 0;
+    let r = 100, a, o; // r = orbit size, a/o = audio stuff
+    // interactive: mouse/touch x controls how wide the orbit is
+    onpointermove = e => d = e.x/innerWidth*200-100;
+    // web audio: bass beep on every click/tap
+    onpointerdown = _ => {a=a||new AudioContext;o=a.createOscillator();o.frequency.value=6767;o.connect(a.destination);o.start();o.stop(a.currentTime+.2)};
+    // reveal 67
+    b.onclick = _ => {i.remove();c.hidden=0;requestAnimationFrame(poop)};
+    // main poop
+    function poop(t){
+        ctx.globalAlpha=.2;ctx.fillStyle='black';ctx.fillRect(0,0,400,400); // leave trails with alpha for depth
+        // movement - meth below
+        // CENTER IS 200. add/subtract from there.
+        let m = Math.sin(t/166);
+        let y = 200 + m*100;
+        let s = 50 + m*30;
+        //render:
+        ctx.fillStyle = 'lime';
+        ctx.font = s + "px monospace";
+        ctx.globalAlpha = s/80;
+        ctx.fillText("6", 185, y+d);
+        ctx.font = 100-s + "px monospace";
+        ctx.globalAlpha = (100-s)/80;
+        ctx.fillText(" 7", 200, 400-y+d);
+        requestAnimationFrame(poop);
+    }
+</script>
